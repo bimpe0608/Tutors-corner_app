@@ -1,23 +1,10 @@
-// new vue({
-//   el: "app",
-//   data: {
-//     sitename: "Tutor's Corner After School Class Lessons",
-//     product: {
-//         id: 100,
-//         Subject: "Math",
-//         Location: "Manchester",
-//         Price: 30,
-//         imagePath:
-//     }
-//   },
-// });
 
 let products = [
   {
     id: 100,
     subject: "Trigonometry",
     location: "Chelsea",
-    price: "100",
+    price: 100,
     availability: 5,
     category: "Mathematics",
     imagePath: "",
@@ -25,8 +12,8 @@ let products = [
   {
     id: 101,
     subject: "Lexis and Structure",
-    location: "Camden Town",
-    price: "100",
+    location: "Stratford",
+    price: 120,
     availability: 5,
     category: "English Language",
     imagePath: "",
@@ -35,7 +22,7 @@ let products = [
     id: 102,
     subject: "Gas Laws",
     location: "Camden Town",
-    price: "100",
+    price: 90,
     availability: 5,
     category: "Chemistry",
     imagePath: "",
@@ -43,8 +30,8 @@ let products = [
   {
     id: 103,
     subject: "Simple Harmonic Motion",
-    location: "Camden Town",
-    price: "100",
+    location: "Greenwich",
+    price: 85,
     availability: 5,
     category: "Physics",
     imagePath: "",
@@ -52,8 +39,8 @@ let products = [
   {
     id: 104,
     subject: "Organization of Life",
-    location: "Camden Town",
-    price: "100",
+    location: "Bromley",
+    price: 95,
     availability: 5,
     category: "Biology",
     imagePath: "",
@@ -61,8 +48,8 @@ let products = [
   {
     id: 105,
     subject: "Introduction to Programming with C",
-    location: "Camden Town",
-    price: "100",
+    location: "Hampstead",
+    price: 150,
     availability: 5,
     category: "Computer Programming",
     imagePath: "",
@@ -71,7 +58,7 @@ let products = [
     id: 106,
     subject: "Geometry",
     location: "Camden Town",
-    price: "100",
+    price: 85,
     availability: 5,
     category: "Mathematics",
     imagePath: "",
@@ -79,8 +66,8 @@ let products = [
   {
     id: 107,
     subject: "Thermodynamics",
-    location: "Camden Town",
-    price: "100",
+    location: "Westminster",
+    price: 98,
     availability: 5,
     category: "Physics",
     imagePath: "",
@@ -88,8 +75,8 @@ let products = [
   {
     id: 108,
     subject: "Periodic Table of Elements",
-    location: "Camden Town",
-    price: "100",
+    location: "Hendon",
+    price: 90,
     availability: 5,
     category: "Chemistry",
     imagePath: "",
@@ -97,8 +84,8 @@ let products = [
   {
     id: 109,
     subject: "Essay Writing Made Easy",
-    location: "Camden Town",
-    price: "100",
+    location: "Bromley",
+    price: 100,
     availability: 5,
     category: "English Language",
     imagePath: "",
@@ -106,8 +93,8 @@ let products = [
   {
     id: 110,
     subject: "Theories of Evolution",
-    location: "Camden Town",
-    price: "100",
+    location: "Westminster",
+    price: 92,
     availability: 5,
     category: "Biology",
     imagePath: "",
