@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+}
+
+.nav {
+  border: 3px solid orange;
+}
+
+.mainContainer {
+  border: 3px solid black;
+}
+
+.sortBar {
+  border: 3px solid blue;
+}
+
+.filterContainer,
+.orderContainer {
+  border: 3px solid red;
+}
+
+.allProducts {
+  border: 3px solid purple;
+}

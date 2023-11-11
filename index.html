@@ -4,22 +4,115 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutor's Corner</title>
-    <link rel="stylesheet" href="./style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <script src="lessons.js"></script>
-    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+    <script src="./lessons.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
+
   <body>
     <div id="app">
-      <div class="nav"></div>
-      <div class="mainContainer">
-        
-        <div class="filterContainer">
-          <h3>Filter by:</h3>
-          <input type="text" >
+      <div class="nav">
+        <div class="logo">{{logo}}</div>
+        <div>
+          <input type="search" v-on:keyup="" v-model="" placeholder="Search" />
+        </div>
+        <div>
+          <button>
+            <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"></i>
+          </button>
+          <button>
+            <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"></i>
+          </button>
+        </div>
+      </div>
+      <div v-if="displayProducts" class="mainContainer">
+        <div class="sortBar">
+          <!-- Filter products -->
+          <div class="filterContainer">
+            <h3>Filter By:</h3>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="subject"
+                value="subject"
+                name="radio"
+              />
+              <label for="subject">Subject</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="location"
+                value="location"
+                name="radio"
+              />
+              <label for="location">Location</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="price"
+                value="price"
+                name="radio"
+              />
+              <label for="price">Price</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="availability"
+                value="availability"
+                name="radio"
+              />
+              <label for="availability">Availability</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="category"
+                value="category"
+                name="radio"
+              />
+              <label for="category">Category</label>
+            </div>
+          </div>
+
+          <!-- Order filter by ascending or descending -->
+          <div class="orderContainer">
+            <h3>Order By:</h3>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="ascending"
+                value="ascending"
+                name="radio2"
+              />
+              <label for="ascending">Ascending</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                v-model=""
+                id="ascending"
+                value="ascending"
+                name="radio2"
+              />
+              <label for="ascending">Ascending</label>
+            </div>
+          </div>
         </div>
 
-        <div v-for="(product, index) in filteredProductList" :key="index" class="allProducts">
+        <!-- Display all products -->
+        <div v-for="product in filteredProductList" class="allProducts">
           <div class="card">
             <div class="cardImgContainer">
               <img v-bind:src="" alt="" />
@@ -31,12 +124,37 @@
               <h4>Availability: {{products.availability}}</h4>
               <h4>Category: {{products.category}}</h4>
 
-              <button>Add to cart</button>
-              
+              <button v-on:click="add-to-cart(product)" v-if="">
+                Add to cart
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          logo: "Tutor's Corner",
+        },
+
+        methods: {},
+
+        computed: {},
+      });
+    </script> -->
+
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          logo: "rat",
+
+          products: products,
+        },
+      });
+    </script>
   </body>
 </html>

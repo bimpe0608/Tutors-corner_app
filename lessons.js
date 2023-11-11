@@ -1,4 +1,3 @@
-
 let products = [
   {
     id: 100,
@@ -7,7 +6,7 @@ let products = [
     price: 100,
     availability: 5,
     category: "Mathematics",
-    imagePath: "",
+    imagePath: "./Images/Trig.png",
   },
   {
     id: 101,
@@ -16,7 +15,7 @@ let products = [
     price: 120,
     availability: 5,
     category: "English Language",
-    imagePath: "",
+    imagePath: "./Images/lex-stru.png",
   },
   {
     id: 102,
@@ -25,7 +24,7 @@ let products = [
     price: 90,
     availability: 5,
     category: "Chemistry",
-    imagePath: "",
+    imagePath: "./Images/gasLaws.jpg",
   },
   {
     id: 103,
@@ -34,7 +33,7 @@ let products = [
     price: 85,
     availability: 5,
     category: "Physics",
-    imagePath: "",
+    imagePath: "./Images/shm.jpg",
   },
   {
     id: 104,
@@ -43,7 +42,7 @@ let products = [
     price: 95,
     availability: 5,
     category: "Biology",
-    imagePath: "",
+    imagePath: "./Images/cell.png",
   },
   {
     id: 105,
@@ -52,7 +51,7 @@ let products = [
     price: 150,
     availability: 5,
     category: "Computer Programming",
-    imagePath: "",
+    imagePath: "./Images/c-prog.png",
   },
   {
     id: 106,
@@ -61,7 +60,7 @@ let products = [
     price: 85,
     availability: 5,
     category: "Mathematics",
-    imagePath: "",
+    imagePath: "./Images/geometry.png",
   },
   {
     id: 107,
@@ -70,7 +69,7 @@ let products = [
     price: 98,
     availability: 5,
     category: "Physics",
-    imagePath: "",
+    imagePath: "./Images/thermo.png",
   },
   {
     id: 108,
@@ -79,7 +78,7 @@ let products = [
     price: 90,
     availability: 5,
     category: "Chemistry",
-    imagePath: "",
+    imagePath: "./Images/perTable.png",
   },
   {
     id: 109,
@@ -88,7 +87,7 @@ let products = [
     price: 100,
     availability: 5,
     category: "English Language",
-    imagePath: "",
+    imagePath: "./Images/essayW.jpg",
   },
   {
     id: 110,
@@ -97,6 +96,6 @@ let products = [
     price: 92,
     availability: 5,
     category: "Biology",
-    imagePath: "",
+    imagePath: "./Images/evolution.png",
   },
 ];
