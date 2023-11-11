@@ -17,26 +17,28 @@
       <div class="nav">
         <div class="logo">{{logo}}</div>
         <div>
-          <input type="search" v-on:keyup="" v-model="" placeholder="Search" />
+          <!-- <input type="search" v-on:keyup="" v-model=""  v-show="displayProducts" placeholder="Search" /> -->
         </div>
         <div>
-          <button>
-            <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"></i>
+          <button v-on:click="toggleCartPage" :disabled="cart.length === 0">
+            <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"
+              >{{cartCount}}</i
+            >
           </button>
-          <button>
+          <!-- <button>
             <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"></i>
-          </button>
+          </button> -->
         </div>
       </div>
       <div v-if="displayProducts" class="mainContainer">
         <div class="sortBar">
           <!-- Filter products -->
           <div class="filterContainer">
-            <h3>Filter By:</h3>
+            <h3>Sort By:</h3>
             <div>
               <input
                 type="radio"
-                v-model=""
+                v-model="sort.sortBy"
                 id="subject"
                 value="subject"
                 name="radio"
@@ -46,7 +48,7 @@
             <div>
               <input
                 type="radio"
-                v-model=""
+                v-model="sort.sortBy"
                 id="location"
                 value="location"
                 name="radio"
@@ -56,7 +58,7 @@
             <div>
               <input
                 type="radio"
-                v-model=""
+                v-model="sort.sortBy"
                 id="price"
                 value="price"
                 name="radio"
@@ -66,7 +68,7 @@
             <div>
               <input
                 type="radio"
-                v-model=""
+                v-model="sort.sortBy"
                 id="availability"
                 value="availability"
                 name="radio"
@@ -76,7 +78,7 @@
             <div>
               <input
                 type="radio"
-                v-model=""
+                v-model="sort.sortBy"
                 id="category"
                 value="category"
                 name="radio"
@@ -91,7 +93,7 @@
             <div>
               <input
                 type="radio"
-                v-model=""
+                v-model="sort.orderBy"
                 id="ascending"
                 value="ascending"
                 name="radio2"
@@ -101,21 +103,25 @@
             <div>
               <input
                 type="radio"
-                v-model=""
-                id="ascending"
-                value="ascending"
+                v-model="sort.orderBy"
+                id="descending"
+                value="descending"
                 name="radio2"
               />
-              <label for="ascending">Ascending</label>
+              <label for="descending">Descending</label>
             </div>
           </div>
         </div>
 
         <!-- Display all products -->
-        <div v-for="product in filteredProductList" class="allProducts">
+        <div
+          v-for="product in sortedProductList"
+          :key="product.id"
+          class="allProducts"
+        >
           <div class="card">
             <div class="cardImgContainer">
-              <img v-bind:src="" alt="" />
+              <img v-bind:src="product.imagePath" alt="product.subject" />
             </div>
             <div class="cardContent">
               <h4>Subject: {{products.subject}}</h4>
@@ -124,35 +130,56 @@
               <h4>Availability: {{products.availability}}</h4>
               <h4>Category: {{products.category}}</h4>
 
-              <button v-on:click="add-to-cart(product)" v-if="">
+              <!-- Add to cart button -->
+              <button
+                v-on:click="add-to-cart(product)"
+                :disabled="product.availability === 0"
+              >
                 Add to cart
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      <div v-else>
+        <!-- Cart items page -->
+      </div>
     </div>
-
-    <!-- <script>
-      var vm = new Vue({
-        el: "#app",
-        data: {
-          logo: "Tutor's Corner",
-        },
-
-        methods: {},
-
-        computed: {},
-      });
-    </script> -->
 
     <script>
       var vm = new Vue({
         el: "#app",
         data: {
-          logo: "rat",
-
           products: products,
+          logo: "Tutor's Corner",
+
+          displayProducts: true,
+
+          // Cart
+          cart: [],
+          sort: {
+            sortBy: "subject",
+            orderBy: "ascending",
+          },
+        },
+
+        //  methods: {
+
+        //  },
+
+        computed: {
+          // Returns length of the cart items and an empty string if cart is empty
+          cartCount: () => {
+            return this.cart.length || "";
+          },
+
+          sortedProductList() {
+            return this.products.sort((a, b) => {
+              const order = this.orderBy === "asc" ? 1 : -1;
+              return a[this.sortBy] > b[this.sortBy] ? order : -order;
+            });
+          },
         },
       });
     </script>
