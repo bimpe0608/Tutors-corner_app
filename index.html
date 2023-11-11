@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutor's Corner</title>
+    <link rel="icon" type="image/x-icon" href="./Images/logo.png" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
     <script src="./lessons.js"></script>
     <link
@@ -132,7 +133,7 @@
 
               <!-- Add to cart button -->
               <button
-                v-on:click="add-to-cart(product)"
+                v-on:click="addToCart(product)"
                 :disabled="product.availability === 0"
               >
                 Add to cart
@@ -164,9 +165,18 @@
           },
         },
 
-        //  methods: {
+        methods: {
+          // To add items to cart
+          addToCart(product) {
+            if (product.availability > 0) {
+              // Add the lesson to the cart
+              this.cart.push(product);
 
-        //  },
+              // Reduce the remaining space by one
+              product.availability -= 1;
+            }
+          },
+        },
 
         computed: {
           // Returns length of the cart items and an empty string if cart is empty
@@ -176,7 +186,7 @@
 
           sortedProductList() {
             return this.products.sort((a, b) => {
-              const order = this.orderBy === "asc" ? 1 : -1;
+              const order = this.orderBy === "ascending" ? 1 : -1;
               return a[this.sortBy] > b[this.sortBy] ? order : -order;
             });
           },
