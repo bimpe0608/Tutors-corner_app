@@ -1,24 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100;200;300;400;500;600&display=swap");
+
 body {
   margin: 0;
 }
 
 .nav {
-  border: 3px solid orange;
+  /* border: 3px solid orange; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  box-shadow: 2px 2px 5px #999;
+  background-color: orange;
 }
 
-.mainContainer {
-  border: 3px solid black;
-}
-
-.sortBar {
-  border: 3px solid blue;
-}
-
-.filterContainer,
-.orderContainer {
-  border: 3px solid red;
-}
-
-.allProducts {
-  border: 3px solid purple;
+.logo {
+  font-family: "Playpen Sans", "cursive";
+  font-size: 40px;
+  font-weight: 400;
 }

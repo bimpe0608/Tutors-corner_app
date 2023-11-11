@@ -6,7 +6,7 @@ let products = [
     price: 100,
     availability: 5,
     category: "Mathematics",
-    imagePath: "./Images/Trig.png",
+    imagePath: "./Images/Trig.jpeg",
   },
   {
     id: 101,
@@ -15,7 +15,7 @@ let products = [
     price: 120,
     availability: 5,
     category: "English Language",
-    imagePath: "./Images/lex-stru.png",
+    imagePath: "./Images/lex-stru.jpeg",
   },
   {
     id: 102,
@@ -42,7 +42,7 @@ let products = [
     price: 95,
     availability: 5,
     category: "Biology",
-    imagePath: "./Images/cell.png",
+    imagePath: "./Images/cell.jpeg",
   },
   {
     id: 105,
@@ -51,7 +51,7 @@ let products = [
     price: 150,
     availability: 5,
     category: "Computer Programming",
-    imagePath: "./Images/c-prog.png",
+    imagePath: "./Images/c-prog.jpeg",
   },
   {
     id: 106,
@@ -60,7 +60,7 @@ let products = [
     price: 85,
     availability: 5,
     category: "Mathematics",
-    imagePath: "./Images/geometry.png",
+    imagePath: "./Images/geometry.jpeg",
   },
   {
     id: 107,
@@ -69,7 +69,7 @@ let products = [
     price: 98,
     availability: 5,
     category: "Physics",
-    imagePath: "./Images/thermo.png",
+    imagePath: "./Images/thermo.jpeg",
   },
   {
     id: 108,
@@ -78,7 +78,7 @@ let products = [
     price: 90,
     availability: 5,
     category: "Chemistry",
-    imagePath: "./Images/perTable.png",
+    imagePath: "./Images/perTable.jpeg",
   },
   {
     id: 109,
@@ -96,6 +96,6 @@ let products = [
     price: 92,
     availability: 5,
     category: "Biology",
-    imagePath: "./Images/evolution.png",
+    imagePath: "./Images/evolution.jpeg",
   },
 ];

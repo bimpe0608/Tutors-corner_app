@@ -7,6 +7,11 @@
     <link rel="icon" type="image/x-icon" href="./Images/logo.png" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
     <script src="./lessons.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -14,137 +19,171 @@
   </head>
 
   <body>
-    <div id="app">
+    <div id="app" class="font-sans bg-white-100">
+      <!-- Nav bar -->
       <div class="nav">
+        <!-- logo -->
         <div class="logo">{{logo}}</div>
-        <div>
-          <!-- <input type="search" v-on:keyup="" v-model=""  v-show="displayProducts" placeholder="Search" /> -->
-        </div>
-        <div>
-          <button v-on:click="toggleCartPage" :disabled="cart.length === 0">
-            <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"
-              >{{cartCount}}</i
-            >
-          </button>
-          <!-- <button>
-            <i class="fa-sharp fa fa-cart-shopping" style="color: #ff9238"></i>
-          </button> -->
-        </div>
-      </div>
-      <div v-if="displayProducts" class="mainContainer">
-        <div class="sortBar">
-          <!-- Filter products -->
-          <div class="filterContainer">
-            <h3>Sort By:</h3>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.sortBy"
-                id="subject"
-                value="subject"
-                name="radio"
-              />
-              <label for="subject">Subject</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.sortBy"
-                id="location"
-                value="location"
-                name="radio"
-              />
-              <label for="location">Location</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.sortBy"
-                id="price"
-                value="price"
-                name="radio"
-              />
-              <label for="price">Price</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.sortBy"
-                id="availability"
-                value="availability"
-                name="radio"
-              />
-              <label for="availability">Availability</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.sortBy"
-                id="category"
-                value="category"
-                name="radio"
-              />
-              <label for="category">Category</label>
-            </div>
-          </div>
 
-          <!-- Order filter by ascending or descending -->
-          <div class="orderContainer">
-            <h3>Order By:</h3>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.orderBy"
-                id="ascending"
-                value="ascending"
-                name="radio2"
-              />
-              <label for="ascending">Ascending</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                v-model="sort.orderBy"
-                id="descending"
-                value="descending"
-                name="radio2"
-              />
-              <label for="descending">Descending</label>
-            </div>
-          </div>
+        <!-- Search Bar -->
+        <div class="mb-4 flex items-center">
+          <input
+            type="text"
+            placeholder="Search Lesson"
+            class="w-full p-2 border border-gray-300 rounded mr-2"
+          />
         </div>
 
-        <!-- Display all products -->
-        <div
-          v-for="product in sortedProductList"
-          :key="product.id"
-          class="allProducts"
+        <!-- button -->
+        <button
+          class="bg-orange-500 text-white py-2 px-4 rounded"
+          :disabled="cart.length === 0"
         >
-          <div class="card">
-            <div class="cardImgContainer">
-              <img v-bind:src="product.imagePath" alt="product.subject" />
+          <i class="fa-sharp fa fa-cart-shopping" style="color: white"></i>
+            {{ cartCount}}</i
+          >
+        </button>
+      </div>
+
+      <div class="flex flex-col md:flex-row h-screen bg-gray-200">
+        <!-- Sidebar -->
+        <div class="w-full md:w-64 bg-white p-4">
+          <h1 class="text-2xl font-bold mb-4">Filters</h1>
+
+          <!-- Filter options -->
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-600"
+              >Sort By:</label
+            >
+            <div class="mt-1">
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  v-model="sort.sortBy"
+                  id="subject"
+                  value="subject"
+                  name="radio"
+                />
+                <span class="ml-2">Subject</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  v-model="sort.sortBy"
+                  id="location"
+                  value="location"
+                  name="radio"
+                />
+                <span class="ml-2">Location</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  v-model="sort.sortBy"
+                  id="price"
+                  value="price"
+                  name="radio"
+                />
+                <span class="ml-2">Price</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  v-model="sort.sortBy"
+                  id="availability"
+                  value="availability"
+                  name="radio"
+                />
+                <span class="ml-2">Availability</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  v-model="sort.sortBy"
+                  id="category"
+                  value="category"
+                  name="radio"
+                />
+                <span class="ml-2">Category</span>
+              </label>
             </div>
-            <div class="cardContent">
-              <h4>Subject: {{products.subject}}</h4>
-              <h4>Location: {{products.location}}</h4>
-              <h4>Price: £{{products.price}}</h4>
-              <h4>Availability: {{products.availability}}</h4>
-              <h4>Category: {{products.category}}</h4>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-600"
+              >Order By:</label
+            >
+            <div class="mt-1">
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  name="sortBy"
+                  value="latest"
+                />
+                <span class="ml-2">Ascending</span>
+              </label>
+
+              <label class="inline-flex items-center">
+                <input
+                  type="radio"
+                  class="form-radio text-blue-500"
+                  name="sortBy"
+                  value="latest"
+                />
+                <span class="ml-2">Descending</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+          <!-- Card Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card 1 -->
+            <!-- Display all products -->
+            <div
+              v-for="product in sortedProductList"
+              :key="product.id"
+              class="bg-white p-4 rounded-lg shadow-md"
+            >
+              <img
+                v-bind:src="product.imagePath"
+                alt="product.subject"
+                class="mb-4 rounded-md"
+              />
+              <h3 class="text-xl font-semibold mb-2">
+                Subject: {{product.subject}}
+              </h3>
+              <p class="text-gray-600 mb-4">Location: {{product.location}}</p>
+              <p class="text-gray-600 mb-4">Price: £{{product.price}}</p>
+              <p class="text-gray-600 mb-4">
+                Availability:
+                <strong style="color: black">{{product.availability}}</strong>
+              </p>
+              <p class="text-gray-600 mb-4">Category: {{product.category}}</p>
 
               <!-- Add to cart button -->
               <button
+                class="bg-orange-500 text-white py-2 px-4 rounded"
                 v-on:click="addToCart(product)"
                 :disabled="product.availability === 0"
               >
-                Add to cart
+                Add to Cart
               </button>
             </div>
           </div>
         </div>
-      </div>
-
-      <div v-else>
-        <!-- Cart items page -->
       </div>
     </div>
 
@@ -180,11 +219,11 @@
 
         computed: {
           // Returns length of the cart items and an empty string if cart is empty
-          cartCount: () => {
+          cartCount: function () {
             return this.cart.length || "";
           },
 
-          sortedProductList() {
+          sortedProductList(products, sort) {
             return this.products.sort((a, b) => {
               const order = this.orderBy === "ascending" ? 1 : -1;
               return a[this.sortBy] > b[this.sortBy] ? order : -order;
